@@ -1,12 +1,7 @@
 import { useClientEffect$, useStore } from "@builder.io/qwik";
+import { TypewriterProps } from "./typewriter";
 
-export const TIME_INTERVALS = {
-  TYPING_MS: 200,
-  PAUSED_MS: 1000,
-  DELETING_MS: 100,
-};
-
-export const useTypedStrings = (words: string[]) => {
+export const useTypewriter = ({words, typingSpeed = 200, deleteSpeed = 100, pauseSpeed = 1000}: TypewriterProps) => {
   const store = useStore({
     typedString: "",
     typingState: "Typing",
@@ -33,7 +28,7 @@ export const useTypedStrings = (words: string[]) => {
             0,
             store.typedString.length + 1
           );
-        }, 200);
+        }, typingSpeed);
         return () => clearTimeout(timeout);
       }
       case "Deleting": {
@@ -49,14 +44,14 @@ export const useTypedStrings = (words: string[]) => {
         );
         const timeout = setTimeout(() => {
           store.typedString = remainingString;
-        }, TIME_INTERVALS.DELETING_MS);
+        }, deleteSpeed);
         return () => clearTimeout(timeout);
       }
       case "Paused":
       default:
         const timeout = setTimeout(() => {
           store.typingState = "Deleting";
-        }, TIME_INTERVALS.PAUSED_MS);
+        }, pauseSpeed);
         return () => clearTimeout(timeout);
     }
   });
