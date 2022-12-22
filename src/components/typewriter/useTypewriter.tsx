@@ -1,7 +1,12 @@
 import { useClientEffect$, useStore } from "@builder.io/qwik";
 import { TypewriterProps } from "./typewriter";
 
-export const useTypewriter = ({words, typingSpeed = 200, deleteSpeed = 100, pauseSpeed = 1000}: TypewriterProps) => {
+export const useTypewriter = ({
+  words,
+  typingSpeed = 200,
+  deleteSpeed = 100,
+  pauseSpeed = 1000,
+}: TypewriterProps) => {
   const store = useStore({
     typedString: "",
     typingState: "Typing",
@@ -15,11 +20,7 @@ export const useTypewriter = ({words, typingSpeed = 200, deleteSpeed = 100, paus
     track(() => words);
     switch (store.typingState) {
       case "Typing": {
-        const nextTypedString = words[store.wordsIndex].slice(
-          0,
-          store.typedString.length + 1
-        );
-        if (nextTypedString === store.typedString) {
+        if (words[store.wordsIndex] === store.typedString) {
           store.typingState = "Paused";
           return;
         }
