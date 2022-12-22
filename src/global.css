@@ -1,17 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.blinking-cursor:after {
+  content: "|";
+  animation: blink 1s step-start infinite;
+}
 
-@layer components {
-  .blinking-cursor:after {
-    content: "|";
-    @apply text-zinc-900;
-    animation: blink 1s step-start infinite;
-  }
-
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }

@@ -10,9 +10,9 @@ export default () => {
       </head>
       <body>
         <Logo />
-        <span>
+        <p>
           I am a <Typewriter words={["Developer", "Consultant", "Engineer"]} />
-        </span>
+        </p>
       </body>
     </>
   );
