@@ -24,7 +24,7 @@ export default component$(() => {
 | props | Type | Optional | Description | Default |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | words  | array  | Required  | Array of strings for the words  | ex: ```['Hello', 'World']```|
-| class | string  | css classname to be set for the component  | Optional  | ex: ```"text-bold text-red"```  |
-| typingSpeed | number  | Character typing speed in milliseconds  | Optional  | 200  |
-| pauseSpeed | number  | Time between words in milliseconds  | Optional  | 1000  |
-| deleteSpeed | number  | Character deleting speed in milliseconds  | Optional  | 150  |
+| class | string  | Optional  | css classname to be set for the component  | ex: ```"text-bold text-red"```  |
+| typingSpeed | number  | Optional  | Character typing speed in milliseconds  | 200  |
+| pauseSpeed | number  | Optional  | Time between words in milliseconds  | 1000  |
+| deleteSpeed | number  | Optional  | Character deleting speed in milliseconds  | 150  |
