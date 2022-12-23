@@ -1,6 +1,6 @@
 {
   "name": "qwik-typewriter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple typewriter effect for Qwik applications.",
   "author": {
     "name": "Andrew Truong",
